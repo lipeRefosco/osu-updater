@@ -1,5 +1,5 @@
 # Osu Updater
-Keep Osu updated before run the game.
+Verify and download new version of the osu game in background without start the game!
 
 ## Dependecies 
 - Python 3
@@ -10,10 +10,6 @@ Keep Osu updated before run the game.
 $ python ./main.py
 ```
 
-## FAQ!
+## Informations
 
-### System Compatibility
-It's only tested on Linux.
-
-### Game Version
-The program only download the .AppImage version.
+It's only tested on Linux and program only download the .AppImage version.

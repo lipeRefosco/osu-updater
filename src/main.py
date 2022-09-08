@@ -25,22 +25,22 @@ def run():
     local_file = open(CONFIG_FOLDER + CONFIG_FILE)
     local_file = eval(local_file.read())
 
-    while 1:
-        # get infos about new version
-        latest_version = request("get", URL_OSU_REPOSITORY).json()
-        
-        if local_file["id"] != latest_version["id"]:
-            game_saved = get_new_version(
-                url=URL_OSU_DOWNLOAD,
-                path=CONFIG_FOLDER + GAME_FILE
+    # get infos about new version
+    latest_version = request("get", URL_OSU_REPOSITORY).json()
+    
+    if local_file["id"] != latest_version["id"]:
+        game_saved = get_new_version(
+            url=URL_OSU_DOWNLOAD,
+            path=CONFIG_FOLDER + GAME_FILE
+        )
+        if game_saved:
+            save_infos(
+                file_path=CONFIG_FOLDER + CONFIG_FILE,
+                id=latest_version["id"]
             )
-            if game_saved:
-                save_infos(
-                    file_path=CONFIG_FOLDER + CONFIG_FILE,
-                    id=latest_version["id"]
-                )
-        
-        sleep(60 * local_file["timer"]) # 60 seconds
+    
+    sleep(60 * local_file["timer"]) # 60 seconds
+    run()
 
 def install() -> bool:
     directory_exist = os.path.exists(CONFIG_FOLDER)

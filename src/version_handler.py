@@ -1,7 +1,7 @@
-from multiprocessing.reduction import send_handle
 import os
 from datetime import datetime
 from requests import request
+from messages import MESSAGES
 
 def save_infos(
         file_path : str,
@@ -22,7 +22,7 @@ def save_infos(
         )
         return True
     except Exception as e:
-        print("Was't possible to save informations!")
+        send_notification(MESSAGES["fails"]["save_infos"])
         print(e)
         return False
 
@@ -38,7 +38,7 @@ def get_new_version(url : str, path: str) -> bool:
             return False
         
     except Exception as e:
-        print("Download Error!")
+        send_notification(MESSAGES["fails"]["download"])
         print(e)
         return False
 
@@ -51,7 +51,7 @@ def save_download(path: str, file) -> bool:
         print()
         return True
     except Exception as e:
-        print(f"Can't save downloaded file!")
+        send_notification(MESSAGES["fails"]["save_file"])
         print(e)
         return False
 

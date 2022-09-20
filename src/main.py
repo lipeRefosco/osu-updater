@@ -2,6 +2,7 @@ import os
 from time import sleep
 from requests import request
 from version_handler import *
+from messages import MESSAGES
 
 # URLs
 URL_OSU_REPOSITORY = "https://api.github.com/repos/ppy/osu/releases/latest"
@@ -15,15 +16,9 @@ CONFIG_FILE = "config.json"
 # Game file definition
 GAME_FILE = "osu.AppImage"
 
-# Messages
-MESSAGES = {
-    "have_update": "'Has a new version of Osu!'" # Quote is needed to pass as one argument 
-}
-
 
 def main():
     is_installed = install()
-    send_notification(MESSAGES["have_update"])
 
     if is_installed:
         run()
@@ -64,7 +59,7 @@ def install() -> bool:
             os.mkdir(CONFIG_FOLDER)
 
         except:
-            print("Can't create a config folder")
+            send_notification(MESSAGES["fails"]["mkdir"])
             return False
 
     # Save default information file
@@ -73,7 +68,7 @@ def install() -> bool:
     if infos_saved:
         return True
     else:
-        print("Can't install application!")
+        send_notification(MESSAGES["fails"]["install"])
         return False
 
 

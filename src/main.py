@@ -15,8 +15,15 @@ CONFIG_FILE = "config.json"
 # Game file definition
 GAME_FILE = "osu.AppImage"
 
+# Messages
+MESSAGES = {
+    "have_update": "'Has a new version of Osu!'" # Quote is needed to pass as one argument 
+}
+
+
 def main():
     is_installed = install()
+    send_notification(MESSAGES["have_update"])
 
     if is_installed:
         run()
@@ -28,6 +35,9 @@ def run():
     latest_version = request("get", URL_OSU_REPOSITORY).json()
     
     if has_update(local_file, latest_version):
+        
+        send_notification(MESSAGES["have_update"])
+
         game_saved = get_new_version(
             url=URL_OSU_DOWNLOAD,
             path=CONFIG_FOLDER + GAME_FILE

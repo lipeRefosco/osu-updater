@@ -28,7 +28,7 @@ def run():
     # get infos about new version
     latest_version = request("get", URL_OSU_REPOSITORY).json()
     
-    if local_file["id"] != latest_version["id"]:
+    if has_update(local_file, latest_version):
         game_saved = get_new_version(
             url=URL_OSU_DOWNLOAD,
             path=CONFIG_FOLDER + GAME_FILE

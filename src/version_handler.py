@@ -52,3 +52,6 @@ def save_download(path: str, file) -> bool:
         print(f"Can't save downloaded file!")
         print(e)
         return False
+
+def has_update(config_file: dict, request_infos: dict) -> bool:
+    return True if config_file["id"] != request_infos["id"] else False

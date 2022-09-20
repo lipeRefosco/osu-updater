@@ -53,5 +53,10 @@ def save_download(path: str, file) -> bool:
         print(e)
         return False
 
+def get_local_infos(config_file_path: str) -> dict:
+    return eval(
+        open(config_file_path).read()
+    )
+
 def has_update(config_file: dict, request_infos: dict) -> bool:
     return True if config_file["id"] != request_infos["id"] else False

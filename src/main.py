@@ -22,8 +22,7 @@ def main():
         run()
 
 def run():
-    local_file = open(CONFIG_FOLDER + CONFIG_FILE)
-    local_file = eval(local_file.read())
+    local_file = get_local_infos(CONFIG_FOLDER + CONFIG_FILE)
 
     # get infos about new version
     latest_version = request("get", URL_OSU_REPOSITORY).json()

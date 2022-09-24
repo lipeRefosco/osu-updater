@@ -64,4 +64,4 @@ def has_update(config_file: dict, request_infos: dict) -> bool:
     return True if config_file["id"] != request_infos["id"] else False
 
 def send_notification(message: str):
-    os.system(f"notify-send {message}")
+    return os.system('notify-send ' + '"' + message + '"')

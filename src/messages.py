@@ -1,6 +1,5 @@
 # Messages
 MESSAGES = {
-    # Quote is needed to pass as one argument to use on "notify-send" POSIX
     "have_update": "Has a new version of Osu!",
     "fails": {
         "install": "Can't install application!", 

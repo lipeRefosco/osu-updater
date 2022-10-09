@@ -58,8 +58,9 @@ def install() -> bool:
         try:
             os.mkdir(CONFIG_FOLDER)
 
-        except:
+        except Exception as e:
             send_notification(MESSAGES["fails"]["mkdir"])
+            logging.exception(str(e))
             return False
 
     # Save default information file

@@ -1,4 +1,5 @@
 import os
+import logging
 from datetime import datetime
 from requests import request
 from messages import MESSAGES
@@ -23,7 +24,7 @@ def save_infos(
         return True
     except Exception as e:
         send_notification(MESSAGES["fails"]["save_infos"])
-        print(e)
+        logging.exception(str(e))
         return False
 
 def get_new_version(url : str, path: str) -> bool:
@@ -39,7 +40,7 @@ def get_new_version(url : str, path: str) -> bool:
         
     except Exception as e:
         send_notification(MESSAGES["fails"]["download"])
-        print(e)
+        logging.exception(str(e))
         return False
 
 def save_download(path: str, file) -> bool:
@@ -52,7 +53,7 @@ def save_download(path: str, file) -> bool:
         return True
     except Exception as e:
         send_notification(MESSAGES["fails"]["save_file"])
-        print(e)
+        logging.exception(str(e))
         return False
 
 def get_local_infos(config_file_path: str) -> dict:

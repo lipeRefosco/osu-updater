@@ -1,6 +1,7 @@
 # Messages
 MESSAGES = {
     "have_update": "Has a new version of Osu!",
+    "downloading": "Downloading...",
     "fails": {
         "install": "Can't install application!", 
         "download": "Download Error!",

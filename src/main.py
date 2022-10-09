@@ -32,7 +32,6 @@ def run():
     if has_update(local_file, latest_version):
         
         send_notification(MESSAGES["have_update"])
-
         game_saved = get_new_version(URL_OSU_DOWNLOAD, CONFIG_FOLDER + GAME_FILE)
 
         if game_saved:

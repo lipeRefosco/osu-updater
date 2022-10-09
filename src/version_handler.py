@@ -33,8 +33,8 @@ def get_new_version(url: str, path: str) -> bool:
 
     try:
         request_binary = request("get", url).content
-        saved = save_download(path, request_binary)
-        return saved
+        is_saved = save_download(path, request_binary)
+        return is_saved
         
     except Exception as e:
         send_notification(MESSAGES["fails"]["download"])

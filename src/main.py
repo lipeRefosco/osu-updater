@@ -38,10 +38,7 @@ def run():
             path=CONFIG_FOLDER + GAME_FILE
         )
         if game_saved:
-            save_infos(
-                file_path=CONFIG_FOLDER + CONFIG_FILE,
-                id=latest_version["id"]
-            )
+            save_infos(CONFIG_FOLDER + CONFIG_FILE, latest_version["id"])
     
     sleep(60 * local_file["timer"]) # 60 seconds
     run()

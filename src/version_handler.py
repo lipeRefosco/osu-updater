@@ -27,8 +27,10 @@ def save_infos(
         logging.exception(str(e))
         return False
 
-def get_new_version(url : str, path: str) -> bool:
-    print("Downloading... " + url)
+def get_new_version(url: str, path: str) -> bool:
+
+    send_notification(MESSAGES["downloading"] + url)
+
     try:
         request_binary = request("get", url).content
         saved = save_download(path, request_binary)

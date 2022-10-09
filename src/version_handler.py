@@ -34,11 +34,7 @@ def get_new_version(url: str, path: str) -> bool:
     try:
         request_binary = request("get", url).content
         saved = save_download(path, request_binary)
-        
-        if saved:
-            return True
-        else:
-            return False
+        return saved
         
     except Exception as e:
         send_notification(MESSAGES["fails"]["download"])

@@ -40,6 +40,7 @@ def install() -> bool:
     # Create default folder
     if not directory_exist:
         try:
+            os.mkdir(GAMES_FOLDER)
             os.mkdir(CONFIG_FOLDER)
 
         except Exception as e:

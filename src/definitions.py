@@ -1,3 +1,5 @@
+import os
+
 # URLs
 URL_OSU_REPOSITORY = "https://api.github.com/repos/ppy/osu/releases/latest"
 # URL_OSU_REPOSITORY = "http://localhost:8000"

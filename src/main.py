@@ -51,11 +51,12 @@ def install() -> bool:
     # Save default information file
     infos_saved = save_infos(CONFIG_FOLDER + CONFIG_FILE)
     
-    if infos_saved:
-        return True
-    else:
+    if not infos_saved:
         send_notification(MESSAGES["fails"]["install"])
         return False
+    
+    send_notification(MESSAGES["instalation_finished"])
+    return True
 
 
 if __name__ == "__main__":

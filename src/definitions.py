@@ -13,3 +13,4 @@ CONFIG_FOLDER = USER_FOLDER + "/Games/osuLazer/"
 # Files
 CONFIG_FILE = "config.json"
 GAME_FILE = "osu.AppImage"
+DESKTOP_FILE = "osulazer.desktop"

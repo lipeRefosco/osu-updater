@@ -6,6 +6,7 @@ from requests import request
 from version_handler import *
 from messages import MESSAGES
 from definitions import *
+from desktopfile import *
 
 def main():
     is_installed = install()
@@ -50,8 +51,9 @@ def install() -> bool:
 
     # Save default information file
     infos_saved = save_infos(CONFIG_FOLDER + CONFIG_FILE)
+    desktop_file_created = create_desktop_file(CONFIG_FOLDER + DESKTOP_FILE, DESKTOP_FILE)
     
-    if not infos_saved:
+    if not infos_saved and not desktop_file_created:
         send_notification(MESSAGES["fails"]["install"])
         return False
     

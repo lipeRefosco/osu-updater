@@ -18,9 +18,7 @@ def save_infos(
 
     try:
         file = open(file_path, "w")
-        file.write(
-            str(infos)
-        )
+        file.write(str(infos))
         return True
     except Exception as e:
         send_notification(MESSAGES["fails"]["save_infos"])

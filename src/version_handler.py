@@ -25,6 +25,17 @@ def save_infos(
         logging.exception(str(e))
         return False
 
+def create_desktop_file(file_path: str, dektopfile: str) -> bool:
+    try:
+        desktop_file = open(file_path, "w")
+        desktop_file.write(dektopfile)
+        desktop_file.close()
+        return desktop_file.closed
+    except Exception as e:
+        send_notification(MESSAGES["fails"]["desktop_file"])
+        logging.exception(str(e))
+        return False
+
 def get_new_version(url: str, path: str) -> bool:
 
     send_notification(MESSAGES["downloading"] + url)

@@ -41,3 +41,7 @@ class TestMessages:
     def test_message_fail_mkdir(self):
         exit_code = send_notification(MESSAGES['fails']['mkdir'])
         assert exit_code == 0
+
+    def test_message_fail_desktop_file(self):
+        exit_code = send_notification(MESSAGES['fails']['desktop_file'])
+        assert exit_code == 0

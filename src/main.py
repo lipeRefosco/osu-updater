@@ -51,7 +51,7 @@ def install() -> bool:
 
     # Save default information file
     infos_saved = save_infos(CONFIG_FOLDER + CONFIG_FILE)
-    desktop_file_created = create_desktop_file(CONFIG_FOLDER + DESKTOP_FILE, DESKTOP_FILE)
+    desktop_file_created = create_desktop_file(LAUNCHER_FOLDER + LAUNCHER_FILE, desktop_file)
     
     if not infos_saved and not desktop_file_created:
         send_notification(MESSAGES["fails"]["install"])

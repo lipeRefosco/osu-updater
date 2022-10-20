@@ -12,5 +12,5 @@ class TestVersionHandler:
         expected = True
         file = tempfile.gettempdir() + '/osulazer.desktop'
 
-        assert create_desktop_file(file, dektop_file) == expected
+        assert create_desktop_file(file, desktop_file) == expected
 

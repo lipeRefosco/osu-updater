@@ -1,4 +1,4 @@
-dektop_file = """
+desktop_file = """
 [Desktop Entry]
 Type=Application
 Name=Osu Lazer

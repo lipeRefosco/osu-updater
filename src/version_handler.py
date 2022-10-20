@@ -30,6 +30,9 @@ def create_desktop_file(file_path: str, dektopfile: str) -> bool:
         desktop_file = open(file_path, "w")
         desktop_file.write(dektopfile)
         desktop_file.close()
+
+        os.system(f"chmod +x {file_path}")
+
         return desktop_file.closed
     except Exception as e:
         send_notification(MESSAGES["fails"]["desktop_file"])

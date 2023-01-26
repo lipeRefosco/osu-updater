@@ -12,3 +12,16 @@ $ python ./main.py
 
 ## Information
 It's only tested on linux and the program only linux version.
+
+## For developers
+
+### Create end run virtual enviroments
+
+Create the virtual enviroments, run the command below:
+`python3 -m venv .`
+
+To run the enviroment, run:
+`source bin/activate`
+
+### Install requirements
+`python3 -m pip install -r requirements.txt`
